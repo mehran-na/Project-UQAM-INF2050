@@ -4,14 +4,14 @@
 
 ## Identification:
 
-- Cours      : Outils et pratiques de développement logiciel
-- Sigle      : INF2050
-- Session    : Hiver 2020
-- Groupe     : `30`
-- Enseignant : `François-Xavier Guillemette`
-- Auteur     : `Mehran Nazemi` (`NAZM30088507`)
-- Auteur     : `Hussein Nahle` (`NAHH85090004`)
-- Auteur     : `Giovanny Andrés Pardo Hoyos` (`PARG03028209`)
+- **Cours**      : Outils et pratiques de développement logiciel
+- **Sigle**      : INF2050
+- **Session**    : Hiver 2020
+- **Groupe**     : `30`
+- **Enseignant** : `François-Xavier Guillemette`
+- **Auteur**     : `Mehran Nazemi` ( `NAZM30088507` )
+- **Auteur**     : `Hussein Nahle` ( `NAHH85090004` )
+- **Auteur**     : `Giovanny Andrés Pardo Hoyos` ( `PARG03028209` )
 
 **Maven**  :
 Apache Maven est un cadre de gestion de projet open source basé sur des normes qui simplifie la construction, les tests, les rapports et la mise en package des projets. Les racines initiales de Maven étaient dans le projet Apache Jakarta Alexandria qui a eu lieu au début de 2000. Il a ensuite été utilisé dans le projet Apache Turbine. Comme beaucoup d'autres projets Apache à l'époque, le projet Turbine avait plusieurs sous-projets, chacun avec son propre système de construction basé sur Ant. À l'époque, il y avait un fort désir de développer
