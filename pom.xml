@@ -89,7 +89,28 @@
                     </archive>
                 </configuration>
             </plugin>
+<!--
+                  Ajout du plugin Shade permettant la création d'un über-jar.
+                  Crée un binding entre la phase 'package' et le goal 'shade'.
+                  -->
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <shadedArtifactAttached>true</shadedArtifactAttached>
+                    <shadedClassifierName>dependencies-all</shadedClassifierName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
