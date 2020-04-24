@@ -1,58 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>multiTeQ.inf2050</groupId>
     <artifactId>TP</artifactId>
-    <version>minischeme</version>
+    <version>1.0</version>
+    
     <!--Indique aux plugins que les sources sont encodées en UTF-8-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    
     <!--
-   Dépendances directes du projet, incluant celles pour la compilation et
-   l'exécution des tests.
-   -->
+    Dépendances directes du projet, incluant celles pour la compilation et
+    l'exécution des tests.
+    -->
     <dependencies>
-
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.3.2</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.3.2</version>
             <scope>test</scope>
         </dependency>
-
+        
         <!--Dépendance Jackson - Le code applicatif utilise la version 2.9-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.10.3</version>
         </dependency>
-
     </dependencies>
-
     <build>
+        <finalName>minischeme</finalName>
         <plugins>
-            <!--
-      Redéfinition du plugin de compilation afin de changer la version et
-      indiquer que les sources sont en Java 11.
-      -->
+            
+             <!--
+            Redéfinition du plugin de compilation afin de changer la version et
+            indiquer que les sources sont en Java 11.
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -61,21 +56,20 @@
                     <release>11</release>
                 </configuration>
             </plugin>
-
+            
             <!--
-      Redéfinition du plugin d'exécution des tests afin d'utiliser une version
-      compatible avec junit 5.
-      -->
+            Redéfinition du plugin d'exécution des tests afin d'utiliser une version
+            compatible avec junit 5.
+            -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
             </plugin>
-
+            
             <!--
-      Redéfinition du plugin de génération du jar afin d'ajouter une entrée
-      au manifeste du jar.
-      -->
-
+      	    Redéfinition du plugin de génération du jar afin d'ajouter une entrée
+            au manifeste du jar.
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -89,19 +83,15 @@
                     </archive>
                 </configuration>
             </plugin>
-<!--
-                  Ajout du plugin Shade permettant la création d'un über-jar.
-                  Crée un binding entre la phase 'package' et le goal 'shade'.
-                  -->
-
+            
+            <!--
+            Ajout du plugin Shade permettant la création d'un über-jar.
+            Crée un binding entre la phase 'package' et le goal 'shade'.
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.1</version>
-                <configuration>
-                    <shadedArtifactAttached>true</shadedArtifactAttached>
-                    <shadedClassifierName>dependencies-all</shadedClassifierName>
-                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -113,6 +103,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
