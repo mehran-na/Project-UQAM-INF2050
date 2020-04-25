@@ -130,4 +130,17 @@ class EvaluatorTests {
     assertEquals(120.0, result);
   }
 
+  @Test void notTest() {
+    assertTrue((boolean) evaluator.eval(List.of("not", false), env));
+    assertFalse((boolean) evaluator.eval(List.of("not", true), env));
+  }
+
+  @Test void andTest() {
+    assertTrue((boolean) evaluator.eval(List.of("and", true, true), env));
+    assertFalse((boolean) evaluator.eval(List.of("and", true, true, false), env));
+    Object param1 = evaluator.eval(List.of("not", false), env);
+    Object param2 = evaluator.eval(List.of("<", 1.0, 2.0), env);
+    assertTrue((boolean) evaluator.eval(List.of("and", true, param1, param2), env));
+  }
+
 }

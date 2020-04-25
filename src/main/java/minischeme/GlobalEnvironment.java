@@ -43,6 +43,16 @@ public class GlobalEnvironment {
       return result;
     });
 
+    env.put("and", (Procedure) (List<Object> params) -> {
+      var result = (Boolean) params.get(0);
+      for (Object x : params.subList(1, params.size())) result &= (Boolean) x;
+      return result;
+    });
+
+    env.put("not", (Procedure) (List<Object> params) -> {
+      return !(Boolean) params.get(0);
+    });
+
     env.put("append", (Procedure) (List<Object> params) -> {
       var concat = new ArrayList<Object>();
       for (int i = 0; i < params.size(); i++) concat.addAll((List<Object>) params.get(i));
