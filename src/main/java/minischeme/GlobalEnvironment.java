@@ -45,7 +45,9 @@ public class GlobalEnvironment {
 
     env.put("and", (Procedure) (List<Object> params) -> {
       var result = (Boolean) params.get(0);
-      for (Object x : params.subList(1, params.size())) result &= (Boolean) x;
+      for (Object x : params.subList(1, params.size())) {
+        result &= (Boolean) x;
+      }
       return result;
     });
 
