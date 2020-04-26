@@ -1,0 +1,6 @@
+["begin",
+
+  ["define", "p", true],
+  ["define", "q", false],
+
+  ["not", ["and", ["not", "p"], ["not", "q"]]]]
