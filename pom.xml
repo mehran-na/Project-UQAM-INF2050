@@ -36,6 +36,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.10.3</version>
         </dependency>
+        <!--Dépendance commons-math3 - Le code applicatif l'utilise pour
+        arrondir les doubles-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6.1</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>minischeme</finalName>

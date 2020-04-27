@@ -143,4 +143,9 @@ class EvaluatorTests {
     assertTrue((boolean) evaluator.eval(List.of("and", true, param1, param2), env));
   }
 
+  @Test void eqTest() {
+    assertTrue((boolean) evaluator.eval(List.of("eq", 1.001, 1.002, 1.003, 1.004), env));
+    assertFalse((boolean) evaluator.eval(List.of("eq", 1.001, 1.002, 1.003, 1.005), env));
+    assertFalse((boolean) evaluator.eval(List.of("eq", 1.00, 1.01, 1.02, 1.03), env));
+  }
 }
