@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
-
+import org.apache.commons.math3.util.Precision;
 
 public class GlobalEnvironment {
 
@@ -53,6 +53,19 @@ public class GlobalEnvironment {
 
     env.put("not", (Procedure) (List<Object> params) -> {
       return !(Boolean) params.get(0);
+    });
+
+    env.put("eq", (Procedure) (List<Object> params) -> {
+      var result = (Boolean) true;
+      var element0 = Precision.round((Double) params.get(0), 2);
+      int i = 0;
+      while (i < params.size() && result.equals(true)) {
+        if (element0 != Precision.round((Double) params.get(i), 2)) {
+          result = false;
+        }
+        i++;
+      }
+      return result;
     });
 
     env.put("append", (Procedure) (List<Object> params) -> {
