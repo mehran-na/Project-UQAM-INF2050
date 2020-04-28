@@ -68,6 +68,20 @@ public class GlobalEnvironment {
       return result;
     });
 
+    env.put("count", (Procedure) (List<Object> params) -> {
+      Double valDouble = Double.valueOf(((List<Object>) params.get(0)).size());
+      return valDouble;
+    });
+
+    env.put("head", (Procedure) (List<Object> params) -> {
+      return ((List<Object>) params.get(0)).get(0);
+    });
+
+    env.put("tail", (Procedure) (List<Object> params) -> {
+      var listElements = (List<Object>) params.get(0);
+      return listElements.subList(1, listElements.size());
+    });
+
     env.put("append", (Procedure) (List<Object> params) -> {
       var concat = new ArrayList<Object>();
       for (int i = 0; i < params.size(); i++) concat.addAll((List<Object>) params.get(i));

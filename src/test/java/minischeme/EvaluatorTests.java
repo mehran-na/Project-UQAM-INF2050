@@ -148,4 +148,40 @@ class EvaluatorTests {
     assertFalse((boolean) evaluator.eval(List.of("eq", 1.001, 1.002, 1.003, 1.005), env));
     assertFalse((boolean) evaluator.eval(List.of("eq", 1.00, 1.01, 1.02, 1.03), env));
   }
+
+  @Test void countTest() {
+    /*
+    (begin
+      (count (list 1.0 3.0 5.0 7.0))
+    */
+    List<Object> program = List.of(
+            "begin",
+            List.of("count", List.of("list", 1.0, 3.0, 5.0, 7.0)));
+    Object result = evaluator.eval(program, env);
+    assertEquals(4.0, result);
+  }
+
+  @Test void headTest() {
+    /*
+    (begin
+      (head (list 7.0 4.0 1.0 5.0))
+    */
+    List<Object> program = List.of(
+            "begin",
+            List.of("head", List.of("list", 7.0, 4.0, 1.0, 5.0)));
+    Object result = evaluator.eval(program, env);
+    assertEquals(7.0, result);
+  }
+
+  @Test void tailTest() {
+    /*
+    (begin
+      (head (list 1.0 2.0 3.0 4.0))
+    */
+    List<Object> program = List.of(
+            "begin",
+            List.of("tail", List.of("list", 1.0, 2.0, 3.0, 4.0)));
+    Object result = evaluator.eval(program, env);
+    assertEquals( "[2.0, 3.0, 4.0]", result.toString());
+  }
 }
