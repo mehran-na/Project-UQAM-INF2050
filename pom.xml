@@ -75,6 +75,17 @@
             </plugin>
 
             <!--
+      Ajout du plugin permettant la génération de la javadoc. Peut être
+      lancé avec la commande `mvn javadoc:javadoc`.
+      -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
+            </plugin>
+
+            <!--
       	    Redéfinition du plugin de génération du jar afin d'ajouter une entrée
             au manifeste du jar.
             -->
